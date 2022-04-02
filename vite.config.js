@@ -1,5 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+
+import legacy from "@vitejs/plugin-legacy";
 import { resolve } from "path";
 
 const pathResolve = (dir) => {
@@ -8,7 +10,13 @@ const pathResolve = (dir) => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    legacy({
+      targets: ["defaults", "not IE 11"],
+      polyfills: true,
+    }),
+  ],
   server: {
     host: "0.0.0.0",
     port: 8080,
