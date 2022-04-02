@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import AutoImport from "unplugin-auto-import/vite";
 
 import legacy from "@vitejs/plugin-legacy";
 import { resolve } from "path";
@@ -15,6 +16,10 @@ export default defineConfig({
     legacy({
       targets: ["defaults", "not IE 11"],
       polyfills: true,
+    }),
+    AutoImport({
+      include: [/\.[tj]sx?$/],
+      imports: ["react", "react-router-dom"],
     }),
   ],
   server: {
