@@ -7,6 +7,10 @@ export default () => {
       </main>
       <nav>
         <Link to="/about">go About</Link>
+        <br />
+        <Link to="/use/123">go Ids123</Link>
+        <br />
+        <Link to="/user">go 404</Link>
       </nav>
     </>
   )
