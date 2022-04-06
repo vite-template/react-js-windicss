@@ -1,3 +1,5 @@
+const filter = (f, arr) => arr.filter(f)
+
 export default () => {
   const [count, setCount] = useState(0)
 
