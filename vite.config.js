@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import AutoImport from "unplugin-auto-import/vite";
+import WindiCSS from "vite-plugin-windicss";
 
 import legacy from "@vitejs/plugin-legacy";
 import { resolve } from "path";
@@ -9,7 +10,6 @@ const pathResolve = (dir) => {
   return resolve(__dirname, ".", dir);
 };
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
@@ -21,6 +21,7 @@ export default defineConfig({
       include: [/\.[tj]sx?$/],
       imports: ["react", "react-router-dom"],
     }),
+    WindiCSS(),
   ],
   server: {
     host: "0.0.0.0",
